@@ -1,0 +1,50 @@
+<div class="container-fluid h-custom">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1 custom">
+            <form [formGroup]="registerform" *ngIf="{rigersterformdata:rigersterformdata$ | async} as $">
+                <!-- first Name -->
+                <div data-mdb-input-init class="form-outline mb-4" [class]>
+                    <label class="form-label" for="form3Example3">Frist Name<span class="mandate">*</span></label>
+                    <input type="text" id="form3Example3" class="form-control form-control-lg" placeholder="Frist Name"
+                        formControlName="firsttName" />
+                    <small
+                        *ngIf="!!$.rigersterformdata && registerform.get('firsttName')?.hasError('required') && registerform.get('firsttName')?.touched">
+                        plese Enter Fistname</small>
+
+                </div>
+                <!-- last name -->
+                <div data-mdb-input-init class="form-outline mb-4" [class]>
+                    <label class="form-label" for="form3Example3">Last Name<span class="mandate">*</span></label>
+                    <input type="text" id="form3Example3" class="form-control form-control-lg" placeholder="Last Name"
+                        formControlName="lastName" required />
+                    <small
+                        *ngIf="!!$.rigersterformdata && registerform.get('lastName')?.hasError('required') && registerform.get('lastName')?.touched">Please
+                        enter last name</small>
+                </div>
+                <!-- Email input -->
+                <div data-mdb-input-init class="form-outline mb-4" [class]>
+                    <label class="form-label" for="form3Example3">Email address<span class="mandate">*</span></label>
+                    <input type="email" id="form3Example3" class="form-control form-control-lg"
+                        placeholder="Email address" formControlName="eMail" required />
+                    <small *ngIf="registerform.get('eMail')?.invalid && registerform.get('eMail')?.touched">
+                        Email is
+                        required</small>
+                </div>
+
+                <!-- Password input -->
+                <div data-mdb-input-init class="form-outline mb-3">
+                    <label class="form-label" for="form3Example4">Mobile Number<span class="mandate">*</span></label>
+                    <input type="number" id="form3Example4" class="form-control form-control-lg"
+                        placeholder="Mobile Number" formControlName="passWord" />
+                </div>
+                <div class="text-center text-lg-start mt-4 pt-2">
+                    <button (click)="rigersterEvent()" class="btn btn-primary btn-lg"
+                        style="padding-left: 2.5rem; padding-right: 2.5rem;">Login</button>
+                    <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="#!"
+                            class="link-danger">Register</a>
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
